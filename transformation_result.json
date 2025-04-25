@@ -1,0 +1,547 @@
+{
+  "providerID": "HF001",
+  "name": "HealthFirst Medical Center",
+  "established": 2005,
+  "accredited": true,
+  "contactInformation": {
+    "address": {
+      "type": "physical",
+      "street": "123 Healing Way",
+      "city": "Wellness City",
+      "state": "HC",
+      "zipCode": "12345",
+      "country": "United States"
+    },
+    "phones": [
+      {
+        "type": "main",
+        "number": "(555) 123-4567"
+      },
+      {
+        "type": "emergency",
+        "number": "(555) 123-9999"
+      }
+    ],
+    "emails": [
+      {
+        "type": "info",
+        "address": "info@healthfirstmedical.example.com"
+      }
+    ],
+    "website": "https://healthfirstmedical.example.com",
+    "socialMedia": [
+      {
+        "name": "Facebook",
+        "url": "https://facebook.com/healthfirstmedical"
+      },
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/healthfirstmed"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://instagram.com/healthfirstmedical"
+      }
+    ]
+  },
+  "departments": [
+    {
+      "id": "DEPT001",
+      "name": "Cardiology",
+      "floor": 3,
+      "description": "Comprehensive cardiac care including diagnostics, treatment, and rehabilitation services.",
+      "headPhysician": {
+        "id": "DOC001",
+        "name": "Dr. Sarah Johnson"
+      },
+      "services": [
+        {
+          "id": "SRV001",
+          "name": "Cardiac Consultation",
+          "description": "Initial and follow-up consultations with cardiologists.",
+          "duration": {
+            "value": 45,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 250,
+            "currency": "USD"
+          },
+          "requiresReferral": false
+        },
+        {
+          "id": "SRV002",
+          "name": "Echocardiogram",
+          "description": "Ultrasound imaging of the heart to assess structure and function.",
+          "duration": {
+            "value": 60,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 350,
+            "currency": "USD"
+          },
+          "requiresReferral": true,
+          "equipment": {
+            "name": "GE Vivid E95 Ultrasound",
+            "manufacturer": "GE Healthcare",
+            "yearAcquired": 2021
+          }
+        },
+        {
+          "id": "SRV003",
+          "name": "Cardiac Rehabilitation",
+          "description": "Supervised exercise and education program for heart patients.",
+          "duration": {
+            "value": 12,
+            "unit": "weeks"
+          },
+          "cost": {
+            "amount": 1500,
+            "currency": "USD"
+          },
+          "requiresReferral": true,
+          "schedule": {
+            "days": [
+              "Monday",
+              "Wednesday",
+              "Friday"
+            ],
+            "timeSlots": [
+              {
+                "start": "09:00",
+                "end": "10:30"
+              },
+              {
+                "start": "14:00",
+                "end": "15:30"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEPT002",
+      "name": "Neurology",
+      "floor": 4,
+      "description": "Specialized care for disorders of the nervous system, brain, and spinal cord.",
+      "headPhysician": {
+        "id": "DOC002",
+        "name": "Dr. Michael Chen"
+      },
+      "services": [
+        {
+          "id": "SRV004",
+          "name": "Neurological Consultation",
+          "description": "Comprehensive evaluation of neurological conditions.",
+          "duration": {
+            "value": 60,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 275,
+            "currency": "USD"
+          },
+          "requiresReferral": false
+        },
+        {
+          "id": "SRV005",
+          "name": "Electroencephalogram (EEG)",
+          "description": "Recording of electrical activity in the brain.",
+          "duration": {
+            "value": 90,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 425,
+            "currency": "USD"
+          },
+          "requiresReferral": true,
+          "equipment": {
+            "name": "Nihon Kohden Neurofax EEG-1200",
+            "manufacturer": "Nihon Kohden",
+            "yearAcquired": 2020
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEPT003",
+      "name": "Pediatrics",
+      "floor": 2,
+      "description": "Comprehensive healthcare services for infants, children, and adolescents.",
+      "headPhysician": {
+        "id": "DOC003",
+        "name": "Dr. Emily Rodriguez"
+      },
+      "services": [
+        {
+          "id": "SRV006",
+          "name": "Well-Child Visit",
+          "description": "Regular check-ups to monitor growth, development, and overall health.",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 150,
+            "currency": "USD"
+          },
+          "requiresReferral": false
+        },
+        {
+          "id": "SRV007",
+          "name": "Childhood Immunizations",
+          "description": "Administration of vaccines according to recommended schedules.",
+          "duration": {
+            "value": 15,
+            "unit": "minutes"
+          },
+          "cost": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "requiresReferral": false,
+          "vaccineInventory": [
+            {
+              "name": "DTaP",
+              "manufacturer": "Sanofi Pasteur",
+              "inStock": true
+            },
+            {
+              "name": "MMR",
+              "manufacturer": "Merck",
+              "inStock": true
+            },
+            {
+              "name": "Varicella",
+              "manufacturer": "Merck",
+              "inStock": true
+            },
+            {
+              "name": "Hepatitis B",
+              "manufacturer": "GlaxoSmithKline",
+              "inStock": true
+            }
+          ]
+        }
+      ],
+      "childFriendlyAmenities": [
+        {
+          "name": "Play Area",
+          "location": "Waiting Room"
+        },
+        {
+          "name": "Children's Books",
+          "location": "Examination Rooms"
+        },
+        {
+          "name": "Stickers",
+          "location": "Nurse Station"
+        }
+      ]
+    }
+  ],
+  "medicalStaff": [
+    {
+      "id": "DOC001",
+      "department": "DEPT001",
+      "name": {
+        "first": "Sarah",
+        "last": "Johnson",
+        "title": "Dr."
+      },
+      "specialty": {
+        "name": "Cardiology",
+        "primary": true
+      },
+      "subspecialty": "Interventional Cardiology",
+      "credentials": {
+        "degrees": [
+          {
+            "type": "MD",
+            "institution": "Harvard Medical School",
+            "year": 2001
+          }
+        ],
+        "boardCertifications": [
+          {
+            "board": "American Board of Internal Medicine",
+            "year": 2004
+          },
+          {
+            "board": "American Board of Cardiovascular Disease",
+            "year": 2007
+          }
+        ]
+      },
+      "yearsOfExperience": 18,
+      "languages": [
+        {
+          "name": "English",
+          "fluency": "Native"
+        },
+        {
+          "name": "Spanish",
+          "fluency": "Conversational"
+        }
+      ],
+      "officeHours": [
+        {
+          "day": "Monday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        },
+        {
+          "day": "Tuesday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        },
+        {
+          "day": "Thursday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        },
+        {
+          "day": "Friday",
+          "startTime": "08:00",
+          "endTime": "12:00"
+        }
+      ]
+    },
+    {
+      "id": "DOC002",
+      "department": "DEPT002",
+      "name": {
+        "first": "Michael",
+        "last": "Chen",
+        "title": "Dr."
+      },
+      "specialty": {
+        "name": "Neurology",
+        "primary": true
+      },
+      "subspecialty": "Neurophysiology",
+      "credentials": {
+        "degrees": [
+          {
+            "type": "MD",
+            "institution": "Johns Hopkins University",
+            "year": 2003
+          }
+        ],
+        "boardCertifications": [
+          {
+            "board": "American Board of Psychiatry and Neurology",
+            "year": 2008
+          }
+        ]
+      },
+      "yearsOfExperience": 15,
+      "languages": [
+        {
+          "name": "English",
+          "fluency": "Native"
+        },
+        {
+          "name": "Mandarin",
+          "fluency": "Native"
+        }
+      ],
+      "officeHours": [
+        {
+          "day": "Monday",
+          "startTime": "09:00",
+          "endTime": "16:00"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "09:00",
+          "endTime": "16:00"
+        },
+        {
+          "day": "Friday",
+          "startTime": "09:00",
+          "endTime": "16:00"
+        }
+      ]
+    },
+    {
+      "id": "DOC003",
+      "department": "DEPT003",
+      "name": {
+        "first": "Emily",
+        "last": "Rodriguez",
+        "title": "Dr."
+      },
+      "specialty": {
+        "name": "Pediatrics",
+        "primary": true
+      },
+      "subspecialty": "Pediatric Endocrinology",
+      "credentials": {
+        "degrees": [
+          {
+            "type": "MD",
+            "institution": "Stanford University",
+            "year": 2005
+          }
+        ],
+        "boardCertifications": [
+          {
+            "board": "American Board of Pediatrics",
+            "year": 2009
+          },
+          {
+            "board": "American Board of Pediatric Endocrinology",
+            "year": 2011
+          }
+        ]
+      },
+      "yearsOfExperience": 13,
+      "languages": [
+        {
+          "name": "English",
+          "fluency": "Native"
+        },
+        {
+          "name": "Spanish",
+          "fluency": "Native"
+        }
+      ],
+      "officeHours": [
+        {
+          "day": "Tuesday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        },
+        {
+          "day": "Wednesday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        },
+        {
+          "day": "Thursday",
+          "startTime": "08:00",
+          "endTime": "17:00"
+        }
+      ]
+    }
+  ],
+  "facilities": [
+    {
+      "id": "FAC001",
+      "name": "Main Hospital Building",
+      "description": "Six-story state-of-the-art medical facility with inpatient and outpatient services.",
+      "yearBuilt": 2005,
+      "squareFootage": {
+        "value": 120000,
+        "unit": "sqft"
+      },
+      "floors": 6,
+      "features": [
+        {
+          "name": "Cafeteria",
+          "location": "1st Floor"
+        },
+        {
+          "name": "Pharmacy",
+          "location": "1st Floor"
+        },
+        {
+          "name": "Chapel",
+          "location": "2nd Floor"
+        },
+        {
+          "name": "Healing Garden",
+          "location": "Outdoor"
+        }
+      ],
+      "rooms": [
+        {
+          "type": "PatientRoom",
+          "count": 150
+        },
+        {
+          "type": "OperatingRoom",
+          "count": 8
+        },
+        {
+          "type": "ICU",
+          "count": 20
+        },
+        {
+          "type": "ExaminationRoom",
+          "count": 45
+        }
+      ]
+    },
+    {
+      "id": "FAC002",
+      "name": "Outpatient Clinic",
+      "description": "Dedicated facility for outpatient consultations and procedures.",
+      "yearBuilt": 2010,
+      "squareFootage": {
+        "value": 45000,
+        "unit": "sqft"
+      },
+      "floors": 3,
+      "features": [
+        {
+          "name": "Café",
+          "location": "1st Floor"
+        },
+        {
+          "name": "Laboratory",
+          "location": "2nd Floor"
+        },
+        {
+          "name": "Imaging Center",
+          "location": "3rd Floor"
+        }
+      ],
+      "rooms": [
+        {
+          "type": "ExaminationRoom",
+          "count": 30
+        },
+        {
+          "type": "ProcedureRoom",
+          "count": 10
+        },
+        {
+          "type": "ConsultationRoom",
+          "count": 15
+        }
+      ]
+    }
+  ],
+  "insuranceAccepted": [
+    {
+      "name": "BlueCross BlueShield",
+      "type": "Private",
+      "inNetwork": true
+    },
+    {
+      "name": "Aetna",
+      "type": "Private",
+      "inNetwork": true
+    },
+    {
+      "name": "UnitedHealthcare",
+      "type": "Private",
+      "inNetwork": true
+    },
+    {
+      "name": "Medicare",
+      "type": "Government",
+      "inNetwork": true
+    },
+    {
+      "name": "Medicaid",
+      "type": "Government",
+      "inNetwork": true
+    }
+  ]
+} 

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- Root element -->
+    <xs:element name="HealthcareProvider">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ContactInformation" type="ContactInformationType"/>
+                <xs:element name="Departments" type="DepartmentsType"/>
+                <xs:element name="MedicalStaff" type="MedicalStaffType"/>
+                <xs:element name="Facilities" type="FacilitiesType"/>
+                <xs:element name="InsuranceAccepted" type="InsuranceAcceptedType"/>
+            </xs:sequence>
+            <xs:attribute name="providerID" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="established" type="xs:integer" use="required"/>
+            <xs:attribute name="accredited" type="xs:boolean" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Contact Information Types -->
+    <xs:complexType name="ContactInformationType">
+        <xs:sequence>
+            <xs:element name="Address" type="AddressType"/>
+            <xs:element name="Phone" type="PhoneType" maxOccurs="unbounded"/>
+            <xs:element name="Email" type="EmailType" maxOccurs="unbounded"/>
+            <xs:element name="Website" type="xs:anyURI"/>
+            <xs:element name="SocialMedia" type="SocialMediaType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="Street" type="xs:string"/>
+            <xs:element name="City" type="xs:string"/>
+            <xs:element name="State" type="xs:string"/>
+            <xs:element name="ZipCode" type="ZipCodeType"/>
+            <xs:element name="Country" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="AddressTypeEnum" use="required"/>
+    </xs:complexType>
+    
+    <!-- Custom Restriction 1: ZipCode must be 5 digits -->
+    <xs:simpleType name="ZipCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="AddressTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="physical"/>
+            <xs:enumeration value="mailing"/>
+            <xs:enumeration value="billing"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="PhoneType">
+        <xs:simpleContent>
+            <xs:extension base="PhoneNumberType">
+                <xs:attribute name="type" type="PhoneTypeEnum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <!-- Custom Restriction 2: Phone number format -->
+    <xs:simpleType name="PhoneNumberType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\(\d{3}\) \d{3}-\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PhoneTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="main"/>
+            <xs:enumeration value="emergency"/>
+            <xs:enumeration value="fax"/>
+            <xs:enumeration value="appointment"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="EmailType">
+        <xs:simpleContent>
+            <xs:extension base="EmailAddressType">
+                <xs:attribute name="type" type="EmailTypeEnum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <!-- Custom Restriction 3: Email format -->
+    <xs:simpleType name="EmailAddressType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="EmailTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="info"/>
+            <xs:enumeration value="support"/>
+            <xs:enumeration value="billing"/>
+            <xs:enumeration value="appointments"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="SocialMediaType">
+        <xs:sequence>
+            <xs:element name="Platform" type="PlatformType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PlatformType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="url" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+    
+    <!-- Departments Types -->
+    <xs:complexType name="DepartmentsType">
+        <xs:sequence>
+            <xs:element name="Department" type="DepartmentType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DepartmentType">
+        <xs:sequence>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="HeadPhysician" type="HeadPhysicianType"/>
+            <xs:element name="Services" type="ServicesType"/>
+            <xs:element name="ChildFriendlyAmenities" type="AmenitiesType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="DepartmentIDType" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="floor" type="xs:integer" use="required"/>
+    </xs:complexType>
+    
+    <!-- Custom Restriction 4: Department ID format -->
+    <xs:simpleType name="DepartmentIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="DEPT\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="HeadPhysicianType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="id" type="PhysicianIDType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="PhysicianIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="DOC\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="ServicesType">
+        <xs:sequence>
+            <xs:element name="Service" type="ServiceType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ServiceType">
+        <xs:sequence>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="Duration" type="DurationType"/>
+            <xs:element name="Cost" type="CostType"/>
+            <xs:element name="RequiresReferral" type="xs:boolean"/>
+            <xs:element name="Equipment" type="EquipmentType" minOccurs="0"/>
+            <xs:element name="Schedule" type="ScheduleType" minOccurs="0"/>
+            <xs:element name="VaccineInventory" type="VaccineInventoryType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="ServiceIDType" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <!-- Custom Restriction 5: Service ID format -->
+    <xs:simpleType name="ServiceIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="SRV\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="DurationType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="unit" type="DurationUnitEnum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="DurationUnitEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="minutes"/>
+            <xs:enumeration value="hours"/>
+            <xs:enumeration value="days"/>
+            <xs:enumeration value="weeks"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="CostType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="currency" type="CurrencyEnum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="CurrencyEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="CAD"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="EquipmentType">
+        <xs:sequence>
+            <xs:element name="EquipmentName" type="xs:string"/>
+            <xs:element name="Manufacturer" type="xs:string"/>
+            <xs:element name="YearAcquired" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ScheduleType">
+        <xs:sequence>
+            <xs:element name="Day" type="xs:string" maxOccurs="unbounded"/>
+            <xs:element name="TimeSlot" type="TimeSlotType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="TimeSlotType">
+        <xs:sequence>
+            <xs:element name="StartTime" type="xs:string"/>
+            <xs:element name="EndTime" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="VaccineInventoryType">
+        <xs:sequence>
+            <xs:element name="Vaccine" type="VaccineType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="VaccineType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="manufacturer" type="xs:string" use="required"/>
+        <xs:attribute name="inStock" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="AmenitiesType">
+        <xs:sequence>
+            <xs:element name="Amenity" type="AmenityType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="AmenityType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="location" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <!-- Medical Staff Types -->
+    <xs:complexType name="MedicalStaffType">
+        <xs:sequence>
+            <xs:element name="Physician" type="PhysicianType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PhysicianType">
+        <xs:sequence>
+            <xs:element name="PersonName" type="PersonNameType"/>
+            <xs:element name="Specialty" type="SpecialtyType"/>
+            <xs:element name="Subspecialty" type="xs:string" minOccurs="0"/>
+            <xs:element name="Credentials" type="CredentialsType"/>
+            <xs:element name="YearsOfExperience" type="xs:integer"/>
+            <xs:element name="Languages" type="LanguagesType"/>
+            <xs:element name="OfficeHours" type="OfficeHoursType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="PhysicianIDType" use="required"/>
+        <xs:attribute name="department" type="DepartmentIDType" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="PersonNameType">
+        <xs:sequence>
+            <xs:element name="First" type="xs:string"/>
+            <xs:element name="Last" type="xs:string"/>
+            <xs:element name="Title" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="SpecialtyType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="primary" type="xs:boolean" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="CredentialsType">
+        <xs:sequence>
+            <xs:element name="Degree" type="DegreeType" maxOccurs="unbounded"/>
+            <xs:element name="BoardCertification" type="BoardCertificationType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DegreeType">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="institution" type="xs:string" use="required"/>
+        <xs:attribute name="year" type="xs:integer" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="BoardCertificationType">
+        <xs:attribute name="board" type="xs:string" use="required"/>
+        <xs:attribute name="year" type="xs:integer" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="LanguagesType">
+        <xs:sequence>
+            <xs:element name="Language" type="LanguageType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="LanguageType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="fluency" type="FluencyEnum" use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="FluencyEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Native"/>
+            <xs:enumeration value="Fluent"/>
+            <xs:enumeration value="Conversational"/>
+            <xs:enumeration value="Basic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="OfficeHoursType">
+        <xs:sequence>
+            <xs:element name="Day" type="DayType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DayType">
+        <xs:sequence>
+            <xs:element name="StartTime" type="xs:string"/>
+            <xs:element name="EndTime" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="DayNameEnum" use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="DayNameEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Monday"/>
+            <xs:enumeration value="Tuesday"/>
+            <xs:enumeration value="Wednesday"/>
+            <xs:enumeration value="Thursday"/>
+            <xs:enumeration value="Friday"/>
+            <xs:enumeration value="Saturday"/>
+            <xs:enumeration value="Sunday"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- Facilities Types -->
+    <xs:complexType name="FacilitiesType">
+        <xs:sequence>
+            <xs:element name="Facility" type="FacilityType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="FacilityType">
+        <xs:sequence>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="YearBuilt" type="xs:integer"/>
+            <xs:element name="SquareFootage" type="SquareFootageType"/>
+            <xs:element name="Floors" type="xs:integer"/>
+            <xs:element name="Features" type="FeaturesType"/>
+            <xs:element name="Rooms" type="RoomsType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="FacilityIDType" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="FacilityIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="FAC\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="SquareFootageType">
+        <xs:simpleContent>
+            <xs:extension base="xs:integer">
+                <xs:attribute name="unit" type="AreaUnitEnum" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="AreaUnitEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sqft"/>
+            <xs:enumeration value="sqm"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="FeaturesType">
+        <xs:sequence>
+            <xs:element name="Feature" type="FeatureType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="FeatureType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="location" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="RoomsType">
+        <xs:sequence>
+            <xs:element name="Room" type="RoomType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RoomType">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="count" type="xs:integer" use="required"/>
+    </xs:complexType>
+    
+    <!-- Insurance Types -->
+    <xs:complexType name="InsuranceAcceptedType">
+        <xs:sequence>
+            <xs:element name="Insurance" type="InsuranceType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InsuranceType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="InsuranceTypeEnum" use="required"/>
+        <xs:attribute name="inNetwork" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="InsuranceTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Private"/>
+            <xs:enumeration value="Government"/>
+            <xs:enumeration value="International"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema> 

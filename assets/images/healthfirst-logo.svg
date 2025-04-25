@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="30" cy="30" r="25" fill="#2c5282"/>
+    
+    <!-- Heart Icon -->
+    <path d="M30 20
+             C30 20, 35 15, 40 15
+             C45 15, 50 20, 50 25
+             C50 35, 30 45, 30 45
+             C30 45, 10 35, 10 25
+             C10 20, 15 15, 20 15
+             C25 15, 30 20, 30 20"
+          fill="white"/>
+    
+    <!-- Text -->
+    <text x="70" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c5282">
+        HealthFirst
+    </text>
+</svg> 

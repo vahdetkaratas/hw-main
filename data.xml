@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HealthcareProvider xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="schema.xsd"
+                   providerID="HF001"
+                   name="HealthFirst Medical Center"
+                   established="2005"
+                   accredited="true">
+    
+    <ContactInformation>
+        <Address type="physical">
+            <Street>123 Healing Way</Street>
+            <City>Wellness City</City>
+            <State>HC</State>
+            <ZipCode>12345</ZipCode>
+            <Country>United States</Country>
+        </Address>
+        <Phone type="main">(555) 123-4567</Phone>
+        <Phone type="emergency">(555) 123-9999</Phone>
+        <Email type="info">info@healthfirstmedical.example.com</Email>
+        <Website>https://healthfirstmedical.example.com</Website>
+        <SocialMedia>
+            <Platform name="Facebook" url="https://facebook.com/healthfirstmedical"/>
+            <Platform name="Twitter" url="https://twitter.com/healthfirstmed"/>
+            <Platform name="Instagram" url="https://instagram.com/healthfirstmedical"/>
+        </SocialMedia>
+    </ContactInformation>
+    
+    <Departments>
+        <Department id="DEPT001" name="Cardiology" floor="3">
+            <Description>Comprehensive cardiac care including diagnostics, treatment, and rehabilitation services.</Description>
+            <HeadPhysician id="DOC001">Dr. Sarah Johnson</HeadPhysician>
+            <Services>
+                <Service id="SRV001" name="Cardiac Consultation">
+                    <Description>Initial and follow-up consultations with cardiologists.</Description>
+                    <Duration unit="minutes">45</Duration>
+                    <Cost currency="USD">250</Cost>
+                    <RequiresReferral>false</RequiresReferral>
+                </Service>
+                <Service id="SRV002" name="Echocardiogram">
+                    <Description>Ultrasound imaging of the heart to assess structure and function.</Description>
+                    <Duration unit="minutes">60</Duration>
+                    <Cost currency="USD">350</Cost>
+                    <RequiresReferral>true</RequiresReferral>
+                    <Equipment>
+                        <EquipmentName>GE Vivid E95 Ultrasound</EquipmentName>
+                        <Manufacturer>GE Healthcare</Manufacturer>
+                        <YearAcquired>2021</YearAcquired>
+                    </Equipment>
+                </Service>
+                <Service id="SRV003" name="Cardiac Rehabilitation">
+                    <Description>Supervised exercise and education program for heart patients.</Description>
+                    <Duration unit="weeks">12</Duration>
+                    <Cost currency="USD">1500</Cost>
+                    <RequiresReferral>true</RequiresReferral>
+                    <Schedule>
+                        <Day>Monday</Day>
+                        <Day>Wednesday</Day>
+                        <Day>Friday</Day>
+                        <TimeSlot>
+                            <StartTime>09:00</StartTime>
+                            <EndTime>10:30</EndTime>
+                        </TimeSlot>
+                        <TimeSlot>
+                            <StartTime>14:00</StartTime>
+                            <EndTime>15:30</EndTime>
+                        </TimeSlot>
+                    </Schedule>
+                </Service>
+            </Services>
+        </Department>
+        
+        <Department id="DEPT002" name="Neurology" floor="4">
+            <Description>Specialized care for disorders of the nervous system, brain, and spinal cord.</Description>
+            <HeadPhysician id="DOC002">Dr. Michael Chen</HeadPhysician>
+            <Services>
+                <Service id="SRV004" name="Neurological Consultation">
+                    <Description>Comprehensive evaluation of neurological conditions.</Description>
+                    <Duration unit="minutes">60</Duration>
+                    <Cost currency="USD">275</Cost>
+                    <RequiresReferral>false</RequiresReferral>
+                </Service>
+                <Service id="SRV005" name="Electroencephalogram (EEG)">
+                    <Description>Recording of electrical activity in the brain.</Description>
+                    <Duration unit="minutes">90</Duration>
+                    <Cost currency="USD">425</Cost>
+                    <RequiresReferral>true</RequiresReferral>
+                    <Equipment>
+                        <EquipmentName>Nihon Kohden Neurofax EEG-1200</EquipmentName>
+                        <Manufacturer>Nihon Kohden</Manufacturer>
+                        <YearAcquired>2020</YearAcquired>
+                    </Equipment>
+                </Service>
+            </Services>
+        </Department>
+        
+        <Department id="DEPT003" name="Pediatrics" floor="2">
+            <Description>Comprehensive healthcare services for infants, children, and adolescents.</Description>
+            <HeadPhysician id="DOC003">Dr. Emily Rodriguez</HeadPhysician>
+            <Services>
+                <Service id="SRV006" name="Well-Child Visit">
+                    <Description>Regular check-ups to monitor growth, development, and overall health.</Description>
+                    <Duration unit="minutes">30</Duration>
+                    <Cost currency="USD">150</Cost>
+                    <RequiresReferral>false</RequiresReferral>
+                </Service>
+                <Service id="SRV007" name="Childhood Immunizations">
+                    <Description>Administration of vaccines according to recommended schedules.</Description>
+                    <Duration unit="minutes">15</Duration>
+                    <Cost currency="USD">100</Cost>
+                    <RequiresReferral>false</RequiresReferral>
+                    <VaccineInventory>
+                        <Vaccine name="DTaP" manufacturer="Sanofi Pasteur" inStock="true"/>
+                        <Vaccine name="MMR" manufacturer="Merck" inStock="true"/>
+                        <Vaccine name="Varicella" manufacturer="Merck" inStock="true"/>
+                        <Vaccine name="Hepatitis B" manufacturer="GlaxoSmithKline" inStock="true"/>
+                    </VaccineInventory>
+                </Service>
+            </Services>
+            <ChildFriendlyAmenities>
+                <Amenity name="Play Area" location="Waiting Room"/>
+                <Amenity name="Children's Books" location="Examination Rooms"/>
+                <Amenity name="Stickers" location="Nurse Station"/>
+            </ChildFriendlyAmenities>
+        </Department>
+    </Departments>
+    
+    <MedicalStaff>
+        <Physician id="DOC001" department="DEPT001">
+            <PersonName>
+                <First>Sarah</First>
+                <Last>Johnson</Last>
+                <Title>Dr.</Title>
+            </PersonName>
+            <Specialty primary="true">Cardiology</Specialty>
+            <Subspecialty>Interventional Cardiology</Subspecialty>
+            <Credentials>
+                <Degree type="MD" institution="Harvard Medical School" year="2001"/>
+                <BoardCertification board="American Board of Internal Medicine" year="2004"/>
+                <BoardCertification board="American Board of Cardiovascular Disease" year="2007"/>
+            </Credentials>
+            <YearsOfExperience>18</YearsOfExperience>
+            <Languages>
+                <Language name="English" fluency="Native"/>
+                <Language name="Spanish" fluency="Conversational"/>
+            </Languages>
+            <OfficeHours>
+                <Day name="Monday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+                <Day name="Tuesday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+                <Day name="Thursday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+                <Day name="Friday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>12:00</EndTime>
+                </Day>
+            </OfficeHours>
+        </Physician>
+        
+        <Physician id="DOC002" department="DEPT002">
+            <PersonName>
+                <First>Michael</First>
+                <Last>Chen</Last>
+                <Title>Dr.</Title>
+            </PersonName>
+            <Specialty primary="true">Neurology</Specialty>
+            <Subspecialty>Neurophysiology</Subspecialty>
+            <Credentials>
+                <Degree type="MD" institution="Johns Hopkins University" year="2003"/>
+                <BoardCertification board="American Board of Psychiatry and Neurology" year="2008"/>
+            </Credentials>
+            <YearsOfExperience>15</YearsOfExperience>
+            <Languages>
+                <Language name="English" fluency="Native"/>
+                <Language name="Mandarin" fluency="Native"/>
+            </Languages>
+            <OfficeHours>
+                <Day name="Monday">
+                    <StartTime>09:00</StartTime>
+                    <EndTime>16:00</EndTime>
+                </Day>
+                <Day name="Wednesday">
+                    <StartTime>09:00</StartTime>
+                    <EndTime>16:00</EndTime>
+                </Day>
+                <Day name="Friday">
+                    <StartTime>09:00</StartTime>
+                    <EndTime>16:00</EndTime>
+                </Day>
+            </OfficeHours>
+        </Physician>
+        
+        <Physician id="DOC003" department="DEPT003">
+            <PersonName>
+                <First>Emily</First>
+                <Last>Rodriguez</Last>
+                <Title>Dr.</Title>
+            </PersonName>
+            <Specialty primary="true">Pediatrics</Specialty>
+            <Subspecialty>Pediatric Endocrinology</Subspecialty>
+            <Credentials>
+                <Degree type="MD" institution="Stanford University" year="2005"/>
+                <BoardCertification board="American Board of Pediatrics" year="2009"/>
+                <BoardCertification board="American Board of Pediatric Endocrinology" year="2011"/>
+            </Credentials>
+            <YearsOfExperience>13</YearsOfExperience>
+            <Languages>
+                <Language name="English" fluency="Native"/>
+                <Language name="Spanish" fluency="Native"/>
+            </Languages>
+            <OfficeHours>
+                <Day name="Tuesday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+                <Day name="Wednesday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+                <Day name="Thursday">
+                    <StartTime>08:00</StartTime>
+                    <EndTime>17:00</EndTime>
+                </Day>
+            </OfficeHours>
+        </Physician>
+    </MedicalStaff>
+    
+    <Facilities>
+        <Facility id="FAC001" name="Main Hospital Building">
+            <Description>Six-story state-of-the-art medical facility with inpatient and outpatient services.</Description>
+            <YearBuilt>2005</YearBuilt>
+            <SquareFootage unit="sqft">120000</SquareFootage>
+            <Floors>6</Floors>
+            <Features>
+                <Feature name="Cafeteria" location="1st Floor"/>
+                <Feature name="Pharmacy" location="1st Floor"/>
+                <Feature name="Chapel" location="2nd Floor"/>
+                <Feature name="Healing Garden" location="Outdoor"/>
+            </Features>
+            <Rooms>
+                <Room type="PatientRoom" count="150"/>
+                <Room type="OperatingRoom" count="8"/>
+                <Room type="ICU" count="20"/>
+                <Room type="ExaminationRoom" count="45"/>
+            </Rooms>
+        </Facility>
+        
+        <Facility id="FAC002" name="Outpatient Clinic">
+            <Description>Dedicated facility for outpatient consultations and procedures.</Description>
+            <YearBuilt>2010</YearBuilt>
+            <SquareFootage unit="sqft">45000</SquareFootage>
+            <Floors>3</Floors>
+            <Features>
+                <Feature name="Café" location="1st Floor"/>
+                <Feature name="Laboratory" location="2nd Floor"/>
+                <Feature name="Imaging Center" location="3rd Floor"/>
+            </Features>
+            <Rooms>
+                <Room type="ExaminationRoom" count="30"/>
+                <Room type="ProcedureRoom" count="10"/>
+                <Room type="ConsultationRoom" count="15"/>
+            </Rooms>
+        </Facility>
+    </Facilities>
+    
+    <InsuranceAccepted>
+        <Insurance name="BlueCross BlueShield" type="Private" inNetwork="true"/>
+        <Insurance name="Aetna" type="Private" inNetwork="true"/>
+        <Insurance name="UnitedHealthcare" type="Private" inNetwork="true"/>
+        <Insurance name="Medicare" type="Government" inNetwork="true"/>
+        <Insurance name="Medicaid" type="Government" inNetwork="true"/>
+    </InsuranceAccepted>
+</HealthcareProvider> 

@@ -1,0 +1,386 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1a365d;
+    --secondary-blue: #2c5282;
+    --light-blue: #ebf8ff;
+    --accent-blue: #4299e1;
+    --hover-blue: #3182ce;
+    --white: #ffffff;
+    --gray: #f7fafc;
+    --dark-gray: #2d3748;
+    --text-color: #2d3748;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--gray);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-blue);
+}
+
+a:hover {
+    color: var(--hover-blue);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-blue);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: inline-block;
+}
+
+.logo-container img {
+    height: 60px;
+}
+
+nav {
+    display: inline-block;
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--light-blue);
+}
+
+nav i {
+    margin-right: 0.5rem;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)), url('assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-3px);
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Services Section */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    color: var(--primary-blue);
+    padding: 0 20px;
+}
+
+.service-card p {
+    padding: 0 20px;
+}
+
+.service-card time {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    padding: 0 20px;
+}
+
+/* Doctors Section */
+.doctors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.doctor-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.doctor-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.doctor-card h3 {
+    color: var(--primary-blue);
+    margin: 15px 0;
+}
+
+.doctor-card p {
+    color: var(--accent-blue);
+    margin: 5px 0;
+}
+
+/* News Section */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-card h3 {
+    color: var(--primary-blue);
+}
+
+.news-card time {
+    display: block;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--accent-blue);
+}
+
+.read-more:hover {
+    color: var(--hover-blue);
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: var(--light-blue);
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-author {
+    font-style: italic;
+    color: var(--accent-blue);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 40px 5% 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: var(--light-blue);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: var(--white);
+}
+
+.footer-section a:hover {
+    color: var(--light-blue);
+    text-decoration: underline;
+}
+
+address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* Section Headers */
+section h2 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+section h2 i {
+    color: var(--accent-blue);
+    margin-right: 0.5rem;
+}
+
+/* Icons */
+i {
+    color: var(--accent-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .services-container,
+    .doctors-container,
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+} 

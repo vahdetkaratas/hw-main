@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthFirst Medical Center - Providing comprehensive healthcare services with a patient-centered approach">
+    <meta name="keywords" content="healthcare, medical center, doctors, specialists, patient care">
+    <meta name="author" content="HealthFirst Medical Center">
+    
+    <!-- Open Graph Protocol for Facebook -->
+    <meta property="og:title" content="HealthFirst Medical Center">
+    <meta property="og:description" content="Comprehensive healthcare services with a patient-centered approach">
+    <meta property="og:image" content="assets/images/healthfirst-logo.svg">
+    <meta property="og:url" content="https://healthfirstmedical.example.com">
+    <meta property="og:type" content="website">
+    
+    <title>HealthFirst Medical Center - Your Health, Our Priority</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/images/healthfirst-logo.svg" alt="HealthFirst Medical Center Logo" width="200" height="60">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#services"><i class="fas fa-stethoscope"></i> Services</a></li>
+                <li><a href="#doctors"><i class="fas fa-user-md"></i> Our Doctors</a></li>
+                <li><a href="#news"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h2><i class="fas fa-heartbeat"></i> Your Health, Our Priority</h2>
+                <p>At HealthFirst Medical Center, we are committed to providing exceptional healthcare services with compassion and expertise.</p>
+                <a href="#services" class="btn-primary"><i class="fas fa-arrow-right"></i> Explore Our Services</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2><i class="fas fa-hospital"></i> About HealthFirst Medical Center</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2005, HealthFirst Medical Center has been at the forefront of healthcare innovation and excellence for nearly two decades. Our state-of-the-art facility is equipped with the latest medical technology and staffed by a team of highly qualified healthcare professionals dedicated to improving the health and well-being of our community.</p>
+                    <p>Our mission is to deliver patient-centered care that addresses not only the physical aspects of health but also the emotional and social well-being of our patients. We believe in a holistic approach to healthcare, where prevention, education, and treatment go hand in hand.</p>
+                    <p>At HealthFirst, we pride ourselves on creating a welcoming and supportive environment where patients feel valued, respected, and heard. Our commitment to quality care has earned us recognition as one of the leading healthcare providers in the region.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/medical-center.svg" alt="HealthFirst Medical Center Building" width="400" height="300">
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2><i class="fas fa-clinic-medical"></i> Our Services</h2>
+            <div class="services-container">
+                <article class="service-card" itemscope itemtype="http://schema.org/MedicalProcedure">
+                    <img src="assets/images/primary-care.svg" alt="Primary Care Services" width="300" height="200">
+                    <h3 itemprop="name"><i class="fas fa-user-md"></i> Primary Care</h3>
+                    <p itemprop="description">Comprehensive primary care services for patients of all ages, including routine check-ups, preventive care, and management of chronic conditions.</p>
+                    <time itemprop="availableTime" datetime="Mo-Fr 08:00-17:00"><i class="far fa-clock"></i> Available Monday to Friday, 8:00 AM - 5:00 PM</time>
+                </article>
+
+                <article class="service-card" itemscope itemtype="http://schema.org/MedicalProcedure">
+                    <img src="assets/images/specialty-care.svg" alt="Specialty Care Services" width="300" height="200">
+                    <h3 itemprop="name"><i class="fas fa-stethoscope"></i> Specialty Care</h3>
+                    <p itemprop="description">Specialized medical services in cardiology, neurology, orthopedics, gastroenterology, and more, provided by board-certified specialists.</p>
+                    <time itemprop="availableTime" datetime="Mo-Fr 09:00-16:00"><i class="far fa-clock"></i> Available Monday to Friday, 9:00 AM - 4:00 PM</time>
+                </article>
+
+                <article class="service-card" itemscope itemtype="http://schema.org/MedicalProcedure">
+                    <img src="assets/images/emergency-care.svg" alt="Emergency Care Services" width="300" height="200">
+                    <h3 itemprop="name"><i class="fas fa-ambulance"></i> Emergency Care</h3>
+                    <p itemprop="description">24/7 emergency medical services with rapid response times and a dedicated team of emergency medicine specialists.</p>
+                    <time itemprop="availableTime" datetime="24/7"><i class="far fa-clock"></i> Available 24/7</time>
+                </article>
+            </div>
+        </section>
+
+        <section id="doctors" class="doctors-section">
+            <h2><i class="fas fa-user-md"></i> Our Doctors</h2>
+            <div class="doctors-container">
+                <article class="doctor-card" itemscope itemtype="http://schema.org/Physician">
+                    <img src="assets/images/doctor1.svg" alt="Dr. Sarah Johnson" width="200" height="200">
+                    <h3 itemprop="name">Dr. Sarah Johnson</h3>
+                    <p itemprop="medicalSpecialty"><i class="fas fa-heartbeat"></i> Cardiology</p>
+                    <p itemprop="description">Dr. Johnson is a board-certified cardiologist with over 15 years of experience in diagnosing and treating heart conditions.</p>
+                </article>
+
+                <article class="doctor-card" itemscope itemtype="http://schema.org/Physician">
+                    <img src="assets/images/doctor2.svg" alt="Dr. Michael Chen" width="200" height="200">
+                    <h3 itemprop="name">Dr. Michael Chen</h3>
+                    <p itemprop="medicalSpecialty"><i class="fas fa-brain"></i> Neurology</p>
+                    <p itemprop="description">Dr. Chen specializes in neurological disorders and has pioneered several innovative treatment approaches.</p>
+                </article>
+
+                <article class="doctor-card" itemscope itemtype="http://schema.org/Physician">
+                    <img src="assets/images/doctor3.svg" alt="Dr. Emily Rodriguez" width="200" height="200">
+                    <h3 itemprop="name">Dr. Emily Rodriguez</h3>
+                    <p itemprop="medicalSpecialty"><i class="fas fa-baby"></i> Pediatrics</p>
+                    <p itemprop="description">Dr. Rodriguez is dedicated to providing compassionate care for children from infancy through adolescence.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+            <div class="news-container">
+                <article class="news-card">
+                    <h3><i class="fas fa-image"></i> New Advanced Imaging Center Now Open</h3>
+                    <time datetime="2023-09-15"><i class="far fa-calendar"></i> September 15, 2023</time>
+                    <p>We are pleased to announce the opening of our new Advanced Imaging Center, featuring state-of-the-art MRI, CT, and ultrasound technology. This expansion allows us to provide faster and more accurate diagnostic services to our patients.</p>
+                    <a href="#" class="read-more"><i class="fas fa-arrow-right"></i> Read More</a>
+                </article>
+
+                <article class="news-card">
+                    <h3><i class="fas fa-user-md"></i> HealthFirst Welcomes New Pediatric Specialists</h3>
+                    <time datetime="2023-08-22"><i class="far fa-calendar"></i> August 22, 2023</time>
+                    <p>HealthFirst Medical Center is expanding its pediatric care team with the addition of three new specialists in pediatric cardiology, neurology, and endocrinology. This enhancement to our pediatric department reflects our commitment to providing comprehensive care for children with complex medical needs.</p>
+                    <a href="#" class="read-more"><i class="fas fa-arrow-right"></i> Read More</a>
+                </article>
+
+                <article class="news-card">
+                    <h3><i class="fas fa-calendar-check"></i> Community Health Fair Scheduled for October</h3>
+                    <time datetime="2023-08-10"><i class="far fa-calendar"></i> August 10, 2023</time>
+                    <p>Mark your calendars for our annual Community Health Fair, taking place on October 15th from 10 AM to 4 PM. The event will feature free health screenings, educational workshops, and activities for the whole family.</p>
+                    <a href="#" class="read-more"><i class="fas fa-arrow-right"></i> Read More</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <aside class="testimonials">
+        <h2><i class="fas fa-comments"></i> Patient Testimonials</h2>
+        <div class="testimonial">
+            <p><i class="fas fa-quote-left"></i> The care I received at HealthFirst was exceptional. The doctors took the time to listen to my concerns and developed a treatment plan tailored to my needs.</p>
+            <p class="testimonial-author"><i class="fas fa-user"></i> - Robert M., Patient since 2018</p>
+        </div>
+        <div class="testimonial">
+            <p><i class="fas fa-quote-left"></i> After my surgery, the follow-up care was outstanding. The entire team was attentive, compassionate, and professional.</p>
+            <p class="testimonial-author"><i class="fas fa-user"></i> - Jennifer L., Patient since 2020</p>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-hospital"></i> HealthFirst Medical Center</h3>
+                <address itemscope itemtype="http://schema.org/MedicalOrganization">
+                    <i class="fas fa-map-marker-alt"></i> <span itemprop="name">HealthFirst Medical Center</span><br>
+                    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                        <i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">123 Healing Way</span><br>
+                        <i class="fas fa-map-marker-alt"></i> <span itemprop="addressLocality">Wellness City</span>,
+                        <i class="fas fa-map-marker-alt"></i> <span itemprop="addressRegion">HC</span>
+                        <i class="fas fa-map-marker-alt"></i> <span itemprop="postalCode">12345</span><br>
+                    </span>
+                    <i class="fas fa-phone"></i> <span itemprop="telephone">(555) 123-4567</span><br>
+                    <i class="fas fa-envelope"></i> <span itemprop="email">info@healthfirstmedical.example.com</span>
+                </address>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-stethoscope"></i> Services</a></li>
+                    <li><a href="#doctors"><i class="fas fa-user-md"></i> Our Doctors</a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> News</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="far fa-clock"></i> Hours of Operation</h3>
+                <ul>
+                    <li><i class="far fa-calendar"></i> Monday - Friday: 8:00 AM - 8:00 PM</li>
+                    <li><i class="far fa-calendar"></i> Saturday: 9:00 AM - 5:00 PM</li>
+                    <li><i class="far fa-calendar"></i> Sunday: 10:00 AM - 3:00 PM</li>
+                    <li><i class="fas fa-ambulance"></i> Emergency Care: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p><i class="far fa-copyright"></i> 2025 HealthFirst Medical Center. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
